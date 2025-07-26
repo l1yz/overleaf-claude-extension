@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Claude for Overleaf",
+  "version": "1.0",
+  "description": "AI assistant for LaTeX editing in Overleaf",
+  
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  
+  "host_permissions": [
+    "https://api.anthropic.com/*"
+  ],
+  
+  "content_scripts": [
+    {
+      "matches": ["https://www.overleaf.com/*"],
+      "js": ["content-script.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Claude for Overleaf"
+  }
+}
